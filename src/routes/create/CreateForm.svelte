@@ -1,6 +1,28 @@
 <script>
-    import { text } from "svelte/internal";
+    import { bind } from "svelte/internal";
 
+  
+  let patientDetails={
+    firstname:"",
+    lastname:"",
+    address:"",
+    phone:"",
+    dob:"",
+    age:"",
+    gender:""
+  }
+  
+ 
+ 
+
+  const createpatient=async()=>{
+    let name= patientDetails.firstname+patientDetails.lastname; 
+    console.log(newUser)
+    console.log(name);
+    // const resquest = await fetch("", {
+    //   body:newUser
+    // })
+  }
 </script>
 
 <style>
@@ -16,7 +38,7 @@
   }
 
 </style>
-<!-- component -->
+
 
   <!-- Container -->
   <div class="container mx-auto">
@@ -34,7 +56,7 @@
           <h3 class="pt-4 text-2xl text-center">Enter your details</h3>
           <!-- patient form  -->
 
-          <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded" method="post">
+          <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded" on:submit={createpatient}>
             <div class="mb-4 md:flex md:justify-between">
               <div class="mb-4 md:mr-2 md:mb-0">
                 <label
@@ -44,6 +66,7 @@
                   First Name
                 </label>
                 <input
+                  bind:value={patientDetails.firstname}
                   class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                   id="firstName"
                   type="text"
@@ -59,6 +82,7 @@
                   Last Name
                 </label>
                 <input
+                bind:value={patientDetails.lastname}
                   class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                   id="lastName"
                   type="text"
@@ -77,6 +101,7 @@
                   Address
                 </label>
                 <input
+                bind:value={patientDetails.address}
                   class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                   id="address"
                   type="text"
@@ -92,6 +117,7 @@
                   Phone number
                 </label>
                 <input
+                bind:value={patientDetails.phone}
                   class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                   id="p-phonenumber"
                   type="tel"
@@ -110,10 +136,27 @@
                   DOB
                 </label>
                 <input
+                bind:value={patientDetails.dob}
                   class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                   id="p-dob"
                   type="date"
                   name="p-dob"
+                  required
+                />
+              </div>
+              <div class="mb-4 md:mr-2 md:mb-0">
+                <label
+                  class="block mb-2 text-sm font-bold text-gray-700"
+                  for="age"
+                >
+                  Age
+                </label>
+                <input
+                bind:value={patientDetails.age}
+                  class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                  id="p-age"
+                  type="text"
+                  name="p-age"
                   required
                 />
               </div>
@@ -129,9 +172,11 @@
                   Male
                 </label>
                 <input
+                bind:group={patientDetails.gender}
                  class="mx-2"
                  type="radio"
                  name="gender"
+                value="MALE"
                  required
                 >
 
@@ -139,8 +184,25 @@
                   Female
                 </label>
                 <input
+                bind:group={patientDetails.gender}
                  type="radio"
                  name="gender"
+                 value="FEMALE"
+                 required
+                >
+
+                <label 
+                for="other"
+                class="mx-2"
+                >
+                  Other
+                </label>
+                <input
+                bind:group={patientDetails.gender}
+                
+                 type="radio"
+                 name="gender"
+                value="OTHERS"
                  required
                 >
               </div>
