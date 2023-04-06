@@ -13,7 +13,7 @@
         data-te-carousel-item
         data-te-carousel-active
       >
-        <img src="/2.png" class="block w-full landing-image" alt="message" />
+        <img src="/1.png" class="block w-full landing-image" alt="message" />
       </div>
       <div
         class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"

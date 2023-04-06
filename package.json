@@ -36,5 +36,8 @@
 	},
 	"svelte": "./dist/index.js",
 	"types": "./dist/index.d.ts",
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"tiny-slider": "^2.9.4"
+	}
 }

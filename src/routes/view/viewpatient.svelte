@@ -1,143 +1,46 @@
 <script>
     import { onMount } from "svelte";
-    // import { paginate, LightPaginationNav } from 'svelte-paginate'
-    // array of patients
-    let patient_details = [
-        // {
-        //     id: 1,
-        //     age: 21,
-        //     gender: "FEMALE",
-        //     name: "Rahul Adhikari",
-        //     address: "Bhaktapur",
-        //     phone: "9876543210",
-        //     dob: "2001-01-22T00:00:00.000+00:00",
-        // },
-        // {
-        //     id: 2,
-        //     age: 20,
-        //     gender: "MALE",
-        //     name: "Jivan Parajuli",
-        //     address: "Imadol",
-        //     phone: "9862116777",
-        //     dob: "2002-08-30T00:00:00.000+00:00",
-        // },
-        // {
-        //     id: 3,
-        //     age: 33,
-        //     gender: "MALE",
-        //     name: "Ramesh Humagain",
-        //     address: "Birtamod",
-        //     phone: "9876543210",
-        //     dob: "1987-04-02T00:00:00.000+00:00",
-        // },
-        // {
-        //     id: 4,
-        //     age: 33,
-        //     gender: "MALE",
-        //     name: "Ramesh Humagain",
-        //     address: "Birtamod",
-        //     phone: "9876543210",
-        //     dob: "1987-04-02T00:00:00.000+00:00",
-        // },
-        // {
-        //     id: 5,
-        //     age: 33,
-        //     gender: "MALE",
-        //     name: "Ramesh Humagain",
-        //     address: "Birtamod",
-        //     phone: "9876543210",
-        //     dob: "1987-04-02T00:00:00.000+00:00",
-        // },
-        // {
-        //     id: 6,
-        //     age: 33,
-        //     gender: "MALE",
-        //     name: "Ramesh Humagain",
-        //     address: "Birtamod",
-        //     phone: "9876543210",
-        //     dob: "1987-04-02T00:00:00.000+00:00",
-        // },
-        // {
-        //     id: 7,
-        //     age: 33,
-        //     gender: "MALE",
-        //     name: "Ramesh Humagain",
-        //     address: "Birtamod",
-        //     phone: "9876543210",
-        //     dob: "1987-04-02T00:00:00.000+00:00",
-        // },
-        // {
-        //     id: 8,
-        //     age: 33,
-        //     gender: "MALE",
-        //     name: "Ramesh Humagain",
-        //     address: "Birtamod",
-        //     phone: "9876543210",
-        //     dob: "1987-04-02T00:00:00.000+00:00",
-        // },
-        // {
-        //     id: 9,
-        //     age: 33,
-        //     gender: "MALE",
-        //     name: "Ramesh Humagain",
-        //     address: "Birtamod",
-        //     phone: "9876543210",
-        //     dob: "1987-04-02T00:00:00.000+00:00",
-        // },
-        // {
-        //     id: 10,
-        //     age: 33,
-        //     gender: "MALE",
-        //     name: "Ramesh Humagain",
-        //     address: "Birtamod",
-        //     phone: "9876543210",
-        //     dob: "1987-04-02T00:00:00.000+00:00",
-        // },
-        // {
-        //     id: 11,
-        //     age: 33,
-        //     gender: "MALE",
-        //     name: "Ramesh Humagain",
-        //     address: "Birtamod",
-        //     phone: "9876543210",
-        //     dob: "1987-04-02T00:00:00.000+00:00",
-        // },
-        // {
-        //     id: 12,
-        //     age: 33,
-        //     gender: "MALE",
-        //     name: "Ramesh Humagain",
-        //     address: "Birtamod",
-        //     phone: "9876543210",
-        //     dob: "1987-04-02T00:00:00.000+00:00",
-        // },
-        // {
-        //     id: 13,
-        //     age: 33,
-        //     gender: "MALE",
-        //     name: "Ramesh Humagain",
-        //     address: "Birtamod",
-        //     phone: "9876543210",
-        //     dob: "1987-04-02T00:00:00.000+00:00",
-        // },
-    ];
+    //array of patients
+    let patient_details = [];
 
-    onMount( async ()=>{
-
-        let  grantrequest = await fetch('http://54.64.108.224:8080/patients');
+    onMount(async () => {
+        let grantrequest = await fetch("http://54.64.108.224:8080/patients");
         patient_details = await grantrequest.json();
-        console.log(patient_data);
     });
 </script>
-<section class="section flex flex-col justify-center items-center  ">
-    <h1 class="text-center  text-2xl mt-6">Patient list</h1>
 
+<h1 class="text-center text-2xl my-6">Patients List</h1>
+<header class="header flex justify-center pt-2 items-center">
+    <div class="mb-3 xl:w-96">
+        <div class="relative mb-4 flex w-full flex-wrap items-stretch">
+            <input
+                type="search"
+                class="relative m-0 -mr-px block w-[1%] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out focus:border-primary-600 focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200"
+                placeholder="Search"
+                aria-label="Search"
+                aria-describedby="button-addon3"
+               
+            />
+
+            <!--Search button-->
+            <button
+                class="relative z-[2] rounded-r border-2 border-primary px-6 py-2 text-xs font-medium uppercase text-primary transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+                type="button"
+                id="button-addon3"
+                data-te-ripple-init
+            >
+                Search
+            </button>
+        </div>
+    </div>
+</header>
+<section class="section flex flex-col justify-center items-center">
     <div class="container flex justify-center flex-wrap p-4">
         {#each patient_details as item}
             <div
-                class="card flex border-solid border-2 m-3  p-2 w-fit  shadow-inner"
+                class="card flex border-solid border-2 m-3 p-2 w-fit shadow-inner"
             >
-                <ul class="flex flex-col border-solid ">
+                <ul class="flex flex-col border-solid">
                     <li>Name: <a href="/#"> {item.name}</a></li>
                     <li>Address: {item.address}</li>
                     <li>Phone number: {item.phone}</li>
@@ -148,7 +51,6 @@
                     <br />
                 </ul>
             </div>
-        
         {/each}
     </div>
 </section>
