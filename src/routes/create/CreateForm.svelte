@@ -1,28 +1,32 @@
 <script>
     import { bind } from "svelte/internal";
 
+  let firstname, lastname; 
   
   let patientDetails={
-    firstname:"",
-    lastname:"",
+    name:"",
     address:"",
     phone:"",
     dob:"",
-    age:"",
+    age:0,
     gender:""
+  }
+  const createpatient = async(e)=>{
+    e.preventdefult;
+    patientDetails.name= firstname.title() + lastname.title();
+    patientDetails.age=parseInt(patientDetails.age)
+    const resquest = await fetch("http://54.64.108.224:8080/patients", {
+      headers:[["Content-Type", "application/json"]],
+      method:"POST",
+      body:JSON.stringify(patientDetails)
+    })
+    console.log(patientDetails);
+    console.log(resquest);
   }
   
  
  
 
-  const createpatient=async()=>{
-    let name= patientDetails.firstname+patientDetails.lastname; 
-    console.log(newUser)
-    console.log(name);
-    // const resquest = await fetch("", {
-    //   body:newUser
-    // })
-  }
 </script>
 
 <style>
@@ -66,7 +70,7 @@
                   First Name
                 </label>
                 <input
-                  bind:value={patientDetails.firstname}
+                  bind:value={firstname}
                   class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                   id="firstName"
                   type="text"
@@ -82,7 +86,7 @@
                   Last Name
                 </label>
                 <input
-                bind:value={patientDetails.lastname}
+                bind:value={lastname}
                   class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                   id="lastName"
                   type="text"

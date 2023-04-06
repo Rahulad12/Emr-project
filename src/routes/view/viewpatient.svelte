@@ -129,13 +129,13 @@
         console.log(patient_data);
     });
 </script>
-<section class="section flex flex-col justify-center items-center">
+<section class="section flex flex-col justify-center items-center  ">
     <h1 class="text-center  text-2xl mt-6">Patient list</h1>
 
     <div class="container flex justify-center flex-wrap p-4">
         {#each patient_details as item}
             <div
-                class="card flex border-solid border-2 border-gray-600 m-3  p-2 w-fit "
+                class="card flex border-solid border-2 m-3  p-2 w-fit  shadow-inner"
             >
                 <ul class="flex flex-col border-solid ">
                     <li>Name: <a href="/#"> {item.name}</a></li>
