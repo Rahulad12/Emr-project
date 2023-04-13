@@ -1,5 +1,6 @@
 <script>
   import { bind } from "svelte/internal";
+  import {serverUrl} from '../../lib/index.js';
 
   let firstname, lastname;
 
@@ -11,6 +12,7 @@
     age: "",
     gender: "",
   };
+
   //function to make name first letter capital
   const captialName = (fullName) => {
     let names = fullName.split(" ");
@@ -42,7 +44,7 @@
     patientDetails.address = captialAddress(address);
     patientDetails.age = parseInt(patientDetails.age);
     // sending data to database
-    const resquest = await fetch("http://54.64.108.224:8080/patients", {
+    const resquest = await fetch( serverUrl +"/patients", {
       headers: [["Content-Type", "application/json"]],
       method: "POST",
       body: JSON.stringify(patientDetails),

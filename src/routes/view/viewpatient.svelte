@@ -1,10 +1,11 @@
 <script>
     import { onMount } from "svelte";
+    import { serverUrl } from "../../lib/index.js";
     //array of patients
     let patient_details = [];
 
     onMount(async () => {
-        let grantrequest = await fetch("http://54.64.108.224:8080/patients");
+        let grantrequest = await fetch(serverUrl + "/patients");
         patient_details = await grantrequest.json();
     });
 </script>
@@ -19,7 +20,6 @@
                 placeholder="Search"
                 aria-label="Search"
                 aria-describedby="button-addon3"
-               
             />
 
             <!--Search button-->
@@ -36,12 +36,14 @@
 </header>
 <section class="section flex flex-col justify-center items-center">
     <div class="container flex justify-center flex-wrap p-4">
+      
         {#each patient_details as item}
+            
             <div
                 class="card flex border-solid border-2 m-3 p-2 w-fit shadow-inner"
             >
                 <ul class="flex flex-col border-solid">
-                    <li>Name: <a href="/#"> {item.name}</a></li>
+                    <li>Name: <a href="/patientsdata"> {item.name}</a></li>
                     <li>Address: {item.address}</li>
                     <li>Phone number: {item.phone}</li>
                     <li>Gender: {item.gender}</li>
