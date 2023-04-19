@@ -34,25 +34,55 @@
         </div>
     </div>
 </header>
-<section class="section flex flex-col justify-center items-center">
-    <div class="container flex justify-center flex-wrap p-4">
-      
-        {#each patient_details as item}
-            
-            <div
-                class="card flex border-solid border-2 m-3 p-2 w-fit shadow-inner"
-            >
-                <ul class="flex flex-col border-solid">
-                    <li>Name: <a href="/patientsdata"> {item.name}</a></li>
-                    <li>Address: {item.address}</li>
-                    <li>Phone number: {item.phone}</li>
-                    <li>Gender: {item.gender}</li>
-                    <li>Age: {item.age}</li>
-                    <li>Date of birth: {item.dob}</li>
+<section class="section flex justify-center">
+    <div class="container flex justify-center flex-wrap p-4 flex-col w-fit">
+        <div class="table">
+            <table class="patients-table  border table-fixed">
+                <thead>
+                    <tr
+                        class="table_data border border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700"
+                    >
+                        <th scope="col" class="px-6 py-4">#</th>
+                        <th scope="col" class="px-6 py-4">Name</th>
+                        <th scope="col" class="px-6 py-4">Address</th>
+                        <th scope="col" class="px-6 py-4">Phone number</th>
+                        <th scope="col" class="px-6 py-4">Gender</th>
+                        <th scope="col" class="px-6 py-4">Age</th>
+                        <th scope="col" class="px-6 py-4">DOB</th>
+                        <th scope="col" class="px-6 py-4">
+                            <a href="/create">
+                                <button
+                                    type="button"
+                                    class=" bg-green-300 border border-solid  px-4 py-2">
+                                    Add +
+                                </button>
+                            </a></th
+                        >
+                    </tr>
+                </thead>
 
-                    <br />
-                </ul>
-            </div>
-        {/each}
+                {#each patient_details as item}
+                    <tbody class="border">
+
+                        <tr>
+                            <td class="whitespace-nowrap px-6 py-4">{item.id} </td>
+                            <td class="whitespace-nowrap px-6 py-4"
+                                > <a href="##">{item.name}</a></td
+                            >
+                            <td class="whitespace-nowrap px-6 py-4">{item.address}</td>
+                            <td class="whitespace-nowrap px-6 py-4"
+                                >{item.phone}</td
+                            >
+                            <td class="whitespace-nowrap px-6 py-4">{item.gender}</td>
+                            <td class="whitespace-nowrap px-6 py-4">
+                                {item.age}</td
+                            >
+                            <td class="whitespace-nowrap px-6 py-4"> {item.dob}</td>
+                        </tr>
+                    </tbody>
+                {/each}
+            </table>
+        </div>
     </div>
 </section>
+
