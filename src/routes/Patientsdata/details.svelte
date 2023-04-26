@@ -24,39 +24,39 @@
         <table class="table-auto">
             <thead>
                 <tr class="text-center border border-black">
-                    <th scope="col" class="px-10 text-left">Daignosis</th>
-                    <th scope="col" class="px-10 text-left">Range</th>
-                    <th scope="col" class="px-10 text-left">pateint Data</th>
+                    <th scope="col" class="px-10 text-left text-2xl">Daignosis</th>
+                    <th scope="col" class="px-10 text-left text-2xl">Range</th>
+                    <th scope="col" class="px-10 text-left text-2xl">pateint Data</th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="border border-black">
-                    <td class="px-2 py-2">Body Temperature</td>
+                    <td class="px-2 py-2 font-bold">Body Temperature</td>
                     <td class="px-2 py-2"> 97.9 <span>&deg</span>f to 99 <span>&deg</span>f</td>
                     <td class="px-2 py-2"> undefined</td>
                 </tr>
                 <tr class="border border-black">
-                    <td class="px-2 py-2">Oxygen Saturation</td>
+                    <td class="px-2 py-2 font-bold">Oxygen Saturation</td>
                     <td class="px-2 py-2"> 97 % to 99 %</td>
                     <td class="px-2 py-2"> undefined</td>
                 </tr>
                 <tr class="border border-black">
-                    <td class="px-2 py-2">Respiratory Rate</td>
+                    <td class="px-2 py-2 font-bold">Respiratory Rate</td>
                     <td class="px-2 py-2"> 12 to 18 </td>
                     <td class="px-2 py-2"> undefined</td>
                 </tr>
                 <tr class="border border-black">
-                    <td class="px-2 py-2">Heart Rate</td>
+                    <td class="px-2 py-2 font-bold">Heart Rate</td>
                     <td class="px-2 py-2"> 55 to 110 </td>
                     <td class="px-2 py-2"> undefined</td>
                 </tr>
                 <tr class="border border-black">
-                    <td class="px-2 py-2">Sys Blood Pressure</td>
+                    <td class="px-2 py-2 font-bold">Sys Blood Pressure</td>
                     <td class="px-2 py-2">120 / 20</td>
                     <td class="px-2 py-2"> undefined</td>
                 </tr>
                 <tr class="border border-black">
-                    <td class="px-2 py-2">Dia Blood Pressure</td>
+                    <td class="px-2 py-2 font-bold">Dia Blood Pressure</td>
                     <td class="px-2 py-2"> 75 / 15 </td>
                     <td class="px-2 py-2"> undefined</td>
                 </tr>
