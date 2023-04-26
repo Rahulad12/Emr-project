@@ -2,20 +2,13 @@
     import { onMount } from "svelte";
     import { serverUrl } from "../../lib/index.js";
     //array of patients
-    let searchTerm ='';
-    let selectedItem ='';
-    export let patient_details = [];
+    let patient_details = [];
 
     onMount(async () => {
         let grantrequest = await fetch(serverUrl + "/patients");
         patient_details = await grantrequest.json();
     });
-    let handleSearch = (e)=>{
-        searchTerm= e.targer.value;
-    }
-    let handleSelection = (e) =>{
-        selectedItem=e.target.value;
-    }
+   
 </script>
 
 <h1 class="text-center text-2xl my-6">Patients List</h1>
@@ -29,7 +22,7 @@
                 placeholder="Search"
                 aria-label="Search"
                 aria-describedby="button-addon3"
-                on:input={handleSearch}
+                
             />
 
             <button
@@ -42,25 +35,8 @@
             </button>
         </div>
     </div>
-    <!-- <select bind:value={selectedItem} on:change={searchTerm}></select>
-        {#each patient_details.filter(item=> item.name.toLowerCase().includes(searchTerm.toLowerCase())) as item }
-            <option value="{item.id}">{item.name}</option>
-        {/each}
-    </select> -->
+   
 </header> 
-
-<!-- 
-<input type="text" on:input={handleSearch}>
-
-<select bind:value={selectedItem} on:change={handleSelection}>
-  {#each patient_details.filter(item => item.name.includes(searchTerm)) as item}
-    <option value={item.id}>{item.name}</option>
-  {/each}
-</select>
-
-{#if selectedItem}
-  <p>You selected: {patient_details.find(item => item.id === selectedItem).name}</p>
-{/if} -->
 <section class="section flex justify-center">
     <div class="container flex justify-center flex-wrap p-4 flex-col w-fit">
         <div class="table">

@@ -1,9 +1,8 @@
 <script>
   import { bind } from "svelte/internal";
-  import {serverUrl} from '../../lib/index.js';
+  import { serverUrl } from "../../lib/index.js";
 
   let firstname, lastname;
-
   let patientDetails = {
     name: "",
     address: "",
@@ -44,14 +43,26 @@
     patientDetails.address = captialAddress(address);
     patientDetails.age = parseInt(patientDetails.age);
     // sending data to database
-    const resquest = await fetch( serverUrl +"/patients", {
+    const resquest = await fetch(serverUrl + "/patients", {
       headers: [["Content-Type", "application/json"]],
       method: "POST",
       body: JSON.stringify(patientDetails),
     });
-    console.log(patientDetails);
-    console.log(resquest);
   };
+  // const resetform = () => {
+  //   patientDetails = {
+  //     name: "",
+  //     address: "",
+  //     phone: "",
+  //     dob: "",
+  //     age: "",
+  //     gender: "",
+  //   };
+  // };
+
+  // if (createpatient() == true) {
+  //   resetform();
+  // }
 </script>
 
 <!-- Container -->
@@ -72,6 +83,7 @@
         <form
           class="px-8 pt-6 pb-8 mb-4 bg-white rounded"
           on:submit={createpatient}
+
           id="my-form"
         >
           <div class="mb-4 md:flex md:justify-between">
@@ -215,6 +227,7 @@
             <button
               class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
               type="submit"
+              value="submit"
             >
               Submit
             </button>
