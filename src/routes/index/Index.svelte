@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header mt-10">
   <div
     id="carouselExampleControls"
     class="relative"
@@ -81,6 +81,6 @@
 
 <style>
   .landing-image {
-    height: 87vh;
+    max-height: 85vh;
   }
 </style>

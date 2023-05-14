@@ -38,6 +38,8 @@
 	"types": "./dist/index.d.ts",
 	"type": "module",
 	"dependencies": {
+		"daisyui": "^2.51.6",
+		"theme-change": "^2.5.0",
 		"tiny-slider": "^2.9.4"
 	}
 }

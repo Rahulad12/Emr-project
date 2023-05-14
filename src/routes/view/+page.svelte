@@ -1,4 +1,5 @@
 <script>
-    import Viewpatient from "./viewpatient.svelte";
+  import Viewpatients from "./viewpatients.svelte";
 </script>
-<Viewpatient></Viewpatient>
+
+<Viewpatients />
