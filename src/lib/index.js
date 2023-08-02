@@ -1,1 +1,1 @@
-export const serverUrl ="https://52.192.52.195";
+export const serverUrl ="https://his.parajulijivan.com.np";
